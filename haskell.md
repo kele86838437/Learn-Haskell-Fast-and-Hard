@@ -8,6 +8,8 @@
 ----
 
 *	[引言](#引言)
+	*	[安装](#安装)
+	*	[莫要惊慌](#莫要惊慌)
 *	[致谢](#致谢)
 
 我认为所有的开发者都应该去学习一下Haskell。虽然没有必要成为Haskell方面的大牛，但是了解Haskell所<br>
@@ -62,12 +64,35 @@ Haskell非常独特。这门语言使用的很多概念是我之前从未接触�
 工具：
 
 -ghc：编译器类似于C语言的编译器gcc。<br>
--ghci：Haskell的控制台交互程序 (REPL)<br>
--runhaskell：用于直接运行一个事先没有编译的程序，这样虽然比较方便但比起先编译好在运行的要慢得多<br>
+-ghci：Haskell的交互解释器 (REPL)<br>
+-runhaskell：用于直接运行一个事先没有编译的脚本程序，这样虽然比较方便但比起先编译好在运行的要慢得多<br>
 
 ####1.2莫要惊慌####
 ![github](imag/munch_TheScream.jpg)
 
-许多介绍Haskell的书或文章通常会以引入深奥的公式开篇(如快排，斐波那契等公式)。
+许多介绍Haskell的书或文章通常会以引入深奥的公式开篇(如快排，斐波那契等公式)。我会以另外一种方式进行。一开始
+我不会介绍Haskell的强大之处。在最前面提到的都是一些Haskell和其他编程语言相似部分。下面我们看下最常见的
+“Hello World”。
+
+		main = putStrLn "Hello World!"
+		
+为了运行它，你可以把上面的代码保存在一个hello.hs的文件中然后运行如下命令：
+	
+		~ runhaskell ./hello.hs
+		Hello World!
+
+或者你可下载文书式的Haskell源码。你可以看到一个如之前介绍的链接名。下载该文件储存为00_hello_world.lhs然后运行它
+
+		~ runhaskell 00_hello_world.lhs
+		Hello World!
+
+[00_hello_world.lhs](code/00_hello_world.lhs)
+[10_hello_you.lhs](code/10_hello_you.lhs)
+接下来，程序会要求你输入你的名字，然后回显“Hello”加上你的名字：
+
+		main = do
+    	print "What is your name?"
+    	name <- getLine
+    	print ("Hello " ++ name ++ "!")	
 ###致谢###
 1.尽管大多数现代编程语言尽力去规避它，但是它还是会以另一种形式表示出来。
