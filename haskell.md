@@ -81,7 +81,7 @@ Haskell非常独特。这门语言使用的很多概念是我之前从未接触�
 		~ runhaskell ./hello.hs
 		Hello World!
 
-或者你可下载文书式的Haskell源码。你可以看到一个如之前介绍的链接名。下载该文件储存为00_hello_world.lhs然后运行它
+或者可下载文书式的Haskell源码，会看到一个如之前介绍的链接名。下载该文件储存为00_hello_world.lhs然后运行它
 
 		~ runhaskell 00_hello_world.lhs
 		Hello World!
@@ -93,6 +93,39 @@ Haskell非常独特。这门语言使用的很多概念是我之前从未接触�
 		main = do
     	print "What is your name?"
     	name <- getLine
-    	print ("Hello " ++ name ++ "!")	
+    	print ("Hello " ++ name ++ "!")
+    	
+让我们来对比一下类似功能在其他几种编程语言中的实现：
+
+		#Python
+		print "What is your name?"
+		name=raw_input()
+		print "Hello %s!" % name
+
+
+		# Ruby
+		puts "What is your name?"
+		name = gets.chomp
+		puts "Hello #{name}!"
+		
+		
+		// In C
+		#include <stdio.h>
+		int main (int argc, char **argv) {
+			char name[666]; // <- An Evil Number!
+			// What if my name is more than 665 character long?
+			printf("What is your name?\n"); 
+			scanf("%s", name);
+			printf("Hello %s!\n", name);
+			return 0;
+		}
+		
+这几种语言在结构上是相同的，但存在一些语法声明上的差异。教程的主要部分会解释产生不同之处的原因。
+
+在Haskell中会有一个main函数并且每个对象都有一个对应的类型。main的类型是IO()。这表明main会带来一些副作用。
+
+总之，对于Haskell来说有很多和主流语言相似的地方。
+[10_hello_you.lhs](code/10_hello_you.lhs)
+[20_very_basic.lhs](code/20_very_basic.lhs)
 ###致谢###
 1.尽管大多数现代编程语言尽力去规避它，但是它还是会以另一种形式表示出来。
